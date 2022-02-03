@@ -27,10 +27,6 @@ public class DurationExerciseServiceImpl implements DurationExerciseService {
     @Override
     public List<DurationExercise> findAll() {
 
-        return durationExerciseRepository
-                .findAll()
-                .stream()
-                .filter(exercise -> exercise.getType().equals("duration"))
-                .toList();
+        return durationExerciseRepository.findAll();
     }
 }

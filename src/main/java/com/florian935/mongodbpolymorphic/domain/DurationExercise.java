@@ -15,8 +15,8 @@ public class DurationExercise extends Exercise {
 
     Integer duration;
 
-    public DurationExercise(String id, String name, String type, Integer duration) {
-        super(id, name, type);
+    public DurationExercise(String id, String name, Integer duration) {
+        super(id, name);
         this.duration = duration;
     }
 }

@@ -27,10 +27,6 @@ public class WeightExerciseServiceImpl implements WeightExerciseService {
     @Override
     public List<WeightExercise> findAll() {
 
-        return weightExerciseRepository
-                .findAll()
-                .stream()
-                .filter(exercise -> exercise.getType().equals("weight"))
-                .toList();
+        return weightExerciseRepository.findAll();
     }
 }

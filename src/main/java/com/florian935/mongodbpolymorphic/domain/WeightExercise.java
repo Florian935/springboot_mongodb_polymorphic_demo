@@ -16,10 +16,9 @@ public class WeightExercise extends Exercise {
     Integer weight;
     Integer reps;
 
-    public WeightExercise(String id, String name, String type, Integer weight, Integer reps) {
-        super(id, name, type);
+    public WeightExercise(String id, String name, Integer weight, Integer reps) {
+        super(id, name);
         this.weight = weight;
         this.reps = reps;
-        this.type = type;
     }
 }

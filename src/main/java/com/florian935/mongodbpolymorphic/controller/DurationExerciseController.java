@@ -1,6 +1,7 @@
 package com.florian935.mongodbpolymorphic.controller;
 
 import com.florian935.mongodbpolymorphic.domain.DurationExercise;
+import com.florian935.mongodbpolymorphic.repository.DurationExerciseRepository;
 import com.florian935.mongodbpolymorphic.service.DurationExerciseService;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;

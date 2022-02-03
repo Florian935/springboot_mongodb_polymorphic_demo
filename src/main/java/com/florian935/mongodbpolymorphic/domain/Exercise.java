@@ -5,13 +5,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import static lombok.AccessLevel.PROTECTED;
 
 @Document(collection = "exercise")
-@TypeAlias("exercise")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -22,6 +20,4 @@ public class Exercise {
     String id;
 
     String name;
-
-    String type;
 }
