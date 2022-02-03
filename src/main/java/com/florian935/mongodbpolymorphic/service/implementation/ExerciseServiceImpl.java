@@ -29,4 +29,16 @@ public class ExerciseServiceImpl implements ExerciseService {
 
         return exerciseRepository.findAll();
     }
+
+    @Override
+    public Long count() {
+
+        return exerciseRepository.count();
+    }
+
+    @Override
+    public void deleteAll() {
+
+        exerciseRepository.deleteAll();
+    }
 }

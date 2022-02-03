@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 import static lombok.AccessLevel.PRIVATE;
+import static org.springframework.http.HttpStatus.NO_CONTENT;
 import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -26,5 +27,20 @@ public class ExerciseController {
     List<Exercise> findAll() {
 
         return exerciseService.findAll();
+    }
+
+    @DeleteMapping
+    @ResponseStatus(NO_CONTENT)
+    void deleteAll() {
+
+        exerciseService.deleteAll();
+    }
+
+    @GetMapping(path = "count", produces = APPLICATION_JSON_VALUE)
+    @ResponseStatus(OK)
+    @ResponseBody
+    Long count() {
+
+        return exerciseService.count();
     }
 }

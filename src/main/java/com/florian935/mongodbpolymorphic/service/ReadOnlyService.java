@@ -7,4 +7,6 @@ public interface ReadOnlyService<ENTITY, ID> {
     ENTITY findById(ID id);
 
     List<ENTITY> findAll();
+
+    Long count();
 }

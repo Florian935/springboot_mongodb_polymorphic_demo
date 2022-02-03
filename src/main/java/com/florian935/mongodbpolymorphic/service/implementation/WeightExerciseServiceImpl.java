@@ -29,4 +29,15 @@ public class WeightExerciseServiceImpl implements WeightExerciseService {
 
         return weightExerciseRepository.findAll();
     }
+
+    @Override
+    public Long count() {
+        return weightExerciseRepository.count();
+    }
+
+    @Override
+    public void deleteAll() {
+
+        weightExerciseRepository.deleteAll();
+    }
 }

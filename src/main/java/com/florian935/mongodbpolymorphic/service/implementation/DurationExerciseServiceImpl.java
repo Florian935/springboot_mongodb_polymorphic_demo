@@ -29,4 +29,16 @@ public class DurationExerciseServiceImpl implements DurationExerciseService {
 
         return durationExerciseRepository.findAll();
     }
+
+    @Override
+    public Long count() {
+
+        return durationExerciseRepository.count();
+    }
+
+    @Override
+    public void deleteAll() {
+
+        durationExerciseRepository.deleteAll();
+    }
 }
