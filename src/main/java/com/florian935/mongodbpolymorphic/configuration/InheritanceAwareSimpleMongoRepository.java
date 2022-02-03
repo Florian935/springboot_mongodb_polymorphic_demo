@@ -22,7 +22,7 @@ public class InheritanceAwareSimpleMongoRepository<T, ID extends Serializable> e
 
     MongoOperations mongoOperations;
     MongoEntityInformation<T, ID> mongoEntityInformation;
-    Criteria classCriteria;
+    Criteria criteria;
     private static final String CLASS_KEY = "_class";
     Query query;
 
@@ -33,14 +33,14 @@ public class InheritanceAwareSimpleMongoRepository<T, ID extends Serializable> e
         this.mongoEntityInformation = mongoEntityInformation;
         this.query = new Query();
 
-        this.classCriteria = buildClassCriteria();
+        this.criteria = buildCriteria();
 
-        if (Objects.nonNull(classCriteria)) {
-            this.query.addCriteria(classCriteria);
+        if (Objects.nonNull(criteria)) {
+            this.query.addCriteria(criteria);
         }
     }
 
-    private Criteria buildClassCriteria() {
+    private Criteria buildCriteria() {
         final boolean isAnnotationPresent = mongoEntityInformation
                 .getJavaType()
                 .isAnnotationPresent(TypeAlias.class);
@@ -60,7 +60,7 @@ public class InheritanceAwareSimpleMongoRepository<T, ID extends Serializable> e
     @Override
     public List<T> findAll() {
 
-        return Objects.nonNull(classCriteria)
+        return Objects.nonNull(criteria)
                 ? mongoOperations.find(
                         query,
                         mongoEntityInformation.getJavaType(),
@@ -71,7 +71,7 @@ public class InheritanceAwareSimpleMongoRepository<T, ID extends Serializable> e
     @Override
     public void deleteAll() {
 
-        if (Objects.nonNull(classCriteria)) {
+        if (Objects.nonNull(criteria)) {
 
             mongoOperations.remove(
                     query,
@@ -87,7 +87,7 @@ public class InheritanceAwareSimpleMongoRepository<T, ID extends Serializable> e
     @Override
     public long count() {
 
-        return Objects.nonNull(classCriteria)
+        return Objects.nonNull(criteria)
                 ? mongoOperations.count(
                         query,
                         mongoEntityInformation.getJavaType(),
