@@ -1,7 +1,6 @@
 package com.florian935.mongodbpolymorphic.configuration;
 
 import lombok.experimental.FieldDefaults;
-import org.bson.Document;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -23,7 +22,6 @@ public class InheritanceAwareSimpleMongoRepository<T, ID extends Serializable> e
 
     MongoOperations mongoOperations;
     MongoEntityInformation<T, ID> mongoEntityInformation;
-    Document classCriteriaDocument;
     Criteria classCriteria;
     private static final String CLASS_KEY = "_class";
     Query query;
@@ -40,10 +38,6 @@ public class InheritanceAwareSimpleMongoRepository<T, ID extends Serializable> e
         if (Objects.nonNull(classCriteria)) {
             this.query.addCriteria(classCriteria);
         }
-
-        classCriteriaDocument = Objects.nonNull(classCriteria)
-                ? classCriteria.getCriteriaObject()
-                : new Document();
     }
 
     private Criteria buildClassCriteria() {
@@ -93,6 +87,11 @@ public class InheritanceAwareSimpleMongoRepository<T, ID extends Serializable> e
     @Override
     public long count() {
 
-        return this.findAll().size();
+        return Objects.nonNull(classCriteria)
+                ? mongoOperations.count(
+                        query,
+                        mongoEntityInformation.getJavaType(),
+                        mongoEntityInformation.getCollectionName())
+                : super.count();
     }
 }
