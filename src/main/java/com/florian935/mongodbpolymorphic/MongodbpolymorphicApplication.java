@@ -15,8 +15,8 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 import java.util.List;
 
 @SpringBootApplication
-@RequiredArgsConstructor
 @EnableMongoRepositories(repositoryBaseClass = InheritanceAwareSimpleMongoRepository.class)
+@RequiredArgsConstructor
 public class MongodbpolymorphicApplication {
 
 	private final ExerciseRepository exerciseRepository;

@@ -5,7 +5,6 @@ import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.data.mongodb.repository.query.MongoEntityInformation;
 import org.springframework.data.mongodb.repository.support.SimpleMongoRepository;
 
@@ -16,7 +15,6 @@ import java.util.Objects;
 import static lombok.AccessLevel.PRIVATE;
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 
-@EnableMongoRepositories(repositoryBaseClass = InheritanceAwareSimpleMongoRepository.class)
 @FieldDefaults(level = PRIVATE, makeFinal = true)
 public class InheritanceAwareSimpleMongoRepository<T, ID extends Serializable> extends SimpleMongoRepository<T, ID> {
 
