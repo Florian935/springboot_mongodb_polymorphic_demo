@@ -1,4 +1,6 @@
 package com.florian935.mongodbpolymorphic.service;
 
-public interface DurationExerciseService extends ExerciseService {
+import com.florian935.mongodbpolymorphic.domain.DurationExercise;
+
+public interface DurationExerciseService extends CrudService<DurationExercise, String> {
 }
