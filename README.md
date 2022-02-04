@@ -5,7 +5,7 @@ This project is a demo of how to implement polymorphic demo in mongo DB.
 ## Create user in mongo DB
 
 Connect to your mongodb instance in your container:
-___docker exec -it mongo bash___
+___docker exec -it yourMongoDBContainerName bash___
 
 Then, connect as admin:
 
