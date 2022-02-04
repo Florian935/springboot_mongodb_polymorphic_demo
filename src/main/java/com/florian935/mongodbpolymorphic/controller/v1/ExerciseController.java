@@ -1,7 +1,7 @@
-package com.florian935.mongodbpolymorphic.controller;
+package com.florian935.mongodbpolymorphic.controller.v1;
 
-import com.florian935.mongodbpolymorphic.domain.WeightExercise;
-import com.florian935.mongodbpolymorphic.service.WeightExerciseService;
+import com.florian935.mongodbpolymorphic.domain.Exercise;
+import com.florian935.mongodbpolymorphic.service.ExerciseService;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.web.bind.annotation.*;
@@ -14,26 +14,26 @@ import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
-@RequestMapping("/api/v1.0/weight-exercises")
+@RequestMapping("/api/v1.0/exercises")
 @RequiredArgsConstructor
 @FieldDefaults(level = PRIVATE, makeFinal = true)
-public class WeightExerciseController {
+public class ExerciseController {
 
-    WeightExerciseService weightExerciseService;
+    ExerciseService exerciseService;
 
     @GetMapping(produces = APPLICATION_JSON_VALUE)
     @ResponseStatus(OK)
     @ResponseBody
-    List<WeightExercise> findAll() {
+    List<Exercise> findAll() {
 
-        return weightExerciseService.findAll();
+        return exerciseService.findAll();
     }
 
     @DeleteMapping
     @ResponseStatus(NO_CONTENT)
     void deleteAll() {
 
-        weightExerciseService.deleteAll();
+        exerciseService.deleteAll();
     }
 
     @GetMapping(path = "count", produces = APPLICATION_JSON_VALUE)
@@ -41,6 +41,6 @@ public class WeightExerciseController {
     @ResponseBody
     Long count() {
 
-        return weightExerciseService.count();
+        return exerciseService.count();
     }
 }

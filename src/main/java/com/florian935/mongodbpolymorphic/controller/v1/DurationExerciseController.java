@@ -1,4 +1,4 @@
-package com.florian935.mongodbpolymorphic.controller;
+package com.florian935.mongodbpolymorphic.controller.v1;
 
 import com.florian935.mongodbpolymorphic.domain.DurationExercise;
 import com.florian935.mongodbpolymorphic.service.DurationExerciseService;
