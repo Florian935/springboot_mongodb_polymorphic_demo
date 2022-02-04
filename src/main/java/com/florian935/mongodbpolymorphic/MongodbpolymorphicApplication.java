@@ -27,6 +27,7 @@ public class MongodbpolymorphicApplication {
 
 	@EventListener(ApplicationReadyEvent.class)
 	public void initData() {
+
 		exerciseRepository.deleteAll();
 		final List<Exercise> exercises = List.of(
 				new Exercise(null, "Bench Press"),
